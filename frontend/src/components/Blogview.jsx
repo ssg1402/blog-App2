@@ -9,7 +9,7 @@ export function Heading({ label }) {
     );
 }
 
-export function BlogView({ blog }) {
+export function Blogview({ blog }) {
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
             {/* Blog Title */}

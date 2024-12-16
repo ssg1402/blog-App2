@@ -5,7 +5,7 @@ import { Heading } from "../components/Heading"; // Import Heading component
 import { SubHeading } from "../components/SubHeading"; // Import SubHeading component
 import { Button } from "../components/Button"; // Import Button component
 
-export function BlogView() {
+export function Blog() {
     const { blogId } = useParams(); // Get the blogId from the URL
     const [blog, setBlog] = useState(null);
 
