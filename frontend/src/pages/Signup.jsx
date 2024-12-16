@@ -6,7 +6,7 @@ import {SubHeading} from "../components/SubHeading"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-export const Signu=()=>{
+export const Signup=()=>{
     const [name,setname]=useState("");
     const [email,setemail]=useState("");
     const [password,setpassword]=useState("");
@@ -49,7 +49,7 @@ export const Signu=()=>{
                     }} label={"Sign-Up"}/>
                 
                 </div>
-                
+
             </div>
         </div>
     </div>
