@@ -63,10 +63,12 @@ const blogSchema = new mongoose.Schema({
     }
 });
 
+
 const User = mongoose.model('User', userSchema);
 const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = {
     User,
-    Blog
+    Blog,
+
 }
