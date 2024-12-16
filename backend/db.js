@@ -1,7 +1,7 @@
 const { zod } = require('zod');
 const mongoose = require('mongoose');
-mongoose.connect("")
-    //define the user schema .
+mongoose.connect("mongodb+srv://ayushsahu:realmenarzo20a**@firstdb.eumrc.mongodb.net/")
+//define the user schema .
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -62,9 +62,6 @@ const blogSchema = new mongoose.Schema({
         default: Date.now
     }
 });
-
-// Export the schema
-
 
 
 const User = mongoose.model('User', userSchema);
