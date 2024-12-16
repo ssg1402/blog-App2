@@ -1,6 +1,20 @@
 const Blog = require('../models/blogModel');
 const mammoth = require('mammoth');
 const fs = require('fs');
+const zlib = require('zlib');
+
+// Wrap zlib.gzip() in a Promise to use async/await
+const compressFile = (fileBuffer) => {
+    return new Promise((resolve, reject) => {
+        zlib.gzip(fileBuffer, (err, compressedBuffer) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(compressedBuffer);
+            }
+        });
+    });
+};
 
 // POST: Upload a Word file and create a blog
 exports.uploadBlog = async (req, res) => {
@@ -18,12 +32,15 @@ exports.uploadBlog = async (req, res) => {
         // Extract text from the Word file
         const { value: extractedContent } = await mammoth.extractRawText({ buffer: wordFileBuffer });
 
-        // Create a new blog entry
+        // Compress the Word file buffer using gzip (to reduce database size)
+        const compressedBuffer = await compressFile(wordFileBuffer);  // Use async/await to compress
+
+        // Create a new blog entry with the compressed file data
         const newBlog = await Blog.create({
             title,
             description,
             content: extractedContent,
-            wordFile: wordFileBuffer,
+            wordFile: compressedBuffer,  // Store compressed data
             wordFileName: req.file.originalname,
             author,
         });

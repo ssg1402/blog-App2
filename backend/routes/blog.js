@@ -1,6 +1,5 @@
 const express = require('express')
 const { Blog } = require('../db')
-const blogController = require('../controllers/blogController');
 const { mongoose } = require('mongoose')
 const multer = require('multer');
 const { uploadBlog, getBlogs } = require('../controllers/blogController');

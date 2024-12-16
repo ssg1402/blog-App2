@@ -1,6 +1,6 @@
 const { zod } = require('zod');
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://siddhantsg004:Ishucr7100@cluster0.acthr.mongodb.net/")
+mongoose.connect("mongodb+srv://ayushsahu:realmenarzo20a**@firstdb.eumrc.mongodb.net/")
 //define the user schema .
 const userSchema = new mongoose.Schema({
     name: {

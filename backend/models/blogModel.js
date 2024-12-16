@@ -8,4 +8,5 @@ const blogSchema = new mongoose.Schema({
     uploadedFilePath: { type: String, required: true }, // Path to the uploaded Word file
 }, { timestamps: true });
 
-module.exports = mongoose.model('Blog', blogSchema);
+const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
+module.exports = Blog;
