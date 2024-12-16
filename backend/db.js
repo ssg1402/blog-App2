@@ -65,19 +65,13 @@ const blogSchema = new mongoose.Schema({
 
 // Export the schema
 
-const signupSchema = new mongoose.Schema({
 
-
-    const signupSchema = zod.object({
-        username: zod.string().min(3, "atlest 3 characters");
-        password: zod.string().min(6)
-    })
-})
 
 const User = mongoose.model('User', userSchema);
 const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = {
     User,
-    Blog
+    Blog,
+
 }
