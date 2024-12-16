@@ -14,7 +14,11 @@ const signupSchema = zod.object({
     role: zod.string()
 })
 
+<<<<<<< HEAD
 router.post("/signup", async(req, res) => {
+=======
+router.post("/signup", async (req, res) => {
+>>>>>>> 8236e8d2ddb9126a7f1588447406bcc6229a29e9
     try {
         const body = req.body;
 
