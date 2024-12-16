@@ -14,30 +14,9 @@ const signupSchema = zod.object({
     role: zod.string()
 })
 
-<<<<<<< HEAD
 router.post("/signup", async(req, res) => {
-    const body = req.body;
-    const { success } = s - ignupSchema.safeParse(body);
-    if (!success) {
-        return res.json({
-            message: "email already taken/incorrect inputs"
-        })
-    }
-    //using the db name it can find wheater this similar signup already exist
-    const user = await User.findOne({
-        name: body.name
-    });
-    if (user._id) {
-        return res.json({
-            message: "email already taken/incorrect inputs"
-        })
-    }
-    const dbuser = await User.create(body);
-=======
-router.post("/signup", async (req, res) => {
     try {
         const body = req.body;
->>>>>>> 4a1178b66ee9a7b5b9fcca1c951ebd82e9e80aec
 
         // Validate input with Zod schema
         const parseResult = signupSchema.safeParse(body);
@@ -72,7 +51,7 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-router.post("/signin", async (req, res) => {
+router.post("/signin", async(req, res) => {
     const { email, password } = req.body;
 
     //validate input using zod schema
