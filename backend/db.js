@@ -1,7 +1,7 @@
 const { zod } = require('zod');
 const mongoose = require('mongoose');
-mongoose.connect("")
-    //define the user schema .
+mongoose.connect("mongodb+srv://siddhantsg004:Ishucr7100@cluster0.acthr.mongodb.net/")
+//define the user schema .
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -62,17 +62,6 @@ const blogSchema = new mongoose.Schema({
         default: Date.now
     }
 });
-
-// Export the schema
-
-const signupSchema = new mongoose.Schema({
-
-
-    const signupSchema = zod.object({
-        username: zod.string().min(3, "atlest 3 characters");
-        password: zod.string().min(6)
-    })
-})
 
 const User = mongoose.model('User', userSchema);
 const Blog = mongoose.model('Blog', blogSchema);
