@@ -49,7 +49,7 @@ export const signup=()=>{
                     }} label={"Sign-Up"}/>
                 
                 </div>
-                
+
             </div>
         </div>
     </div>

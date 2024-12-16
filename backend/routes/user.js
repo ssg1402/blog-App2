@@ -14,7 +14,7 @@ const signupSchema = zod.object({
     role: zod.string()
 })
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", async(req, res) => {
     try {
         const body = req.body;
 
@@ -51,7 +51,7 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-router.post("/signin", async (req, res) => {
+router.post("/signin", async(req, res) => {
     const { email, password } = req.body;
 
     //validate input using zod schema
