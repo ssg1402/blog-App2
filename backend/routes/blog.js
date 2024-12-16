@@ -21,6 +21,6 @@ const upload = multer({ storage });
 router.post('/upload', upload.single('file'), uploadBlog);
 
 // Route to get all blogs
-router.get('/', getBlogs);
+router.get('/fetch', getBlogs);
 
 module.exports = router;
