@@ -17,7 +17,7 @@ const signupSchema = zod.object({
 
 router.post("/signup", async(req, res) => {
     const body = req.body;
-    const { success } = signupSchema.safeParse(body);
+    const { success } = s - ignupSchema.safeParse(body);
     if (!success) {
         return res.json({
             message: "email already taken/incorrect inputs"
