@@ -4,17 +4,44 @@ import {InputBox} from "../components/InputBox"
 import {SubHeading} from "../components/SubHeading"
 
 export const Signin= () =>{
-    return <div className="bg-slate-300 h-screen flex justify-center">
-        <div className="flex flex-col justify-center">
-            <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
-                <Heading label={"sign up"}/>
-                <SubHeading label={"Enter your credentials to access your account"} />
-                <InputBox placeholder="harkirat@gmail.com" label={"Email"} />
-                <InputBox placeholder="123456" label={"Password"} />
-                <div className="pt-4">
-                <Button label={"Sign in"} />
-               </div>
-            </div>
+    return (
+        <div className="min-h-screen w-screen flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #750b5b, #1c759e)' }}>
+        
+    <div className=" relative w-80 rounded-lg p-6 text-center shadow-lg overflow-hidden" style={{ background: 'linear-gradient(135deg, #db6910, #43084e' }}>
+      {/* Shiny Effect Overlay */}
+      <div className=" absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-radial from-white/60 to-transparent animate-spin-slow"></div>
+  
+      {/* Content stays above overlay */}
+      <div className="relative z-10">
+        <Heading label={"Sign-In"} />
+        <SubHeading label={"Enter your credentials"} />
+        <InputBox 
+          onChange={(e) => setname(e.target.value)} 
+          placeholder="Email/UserName" 
+         
+        />
+        <InputBox 
+          onChange={(e) => setpassword(e.target.value)} 
+          placeholder="Password" 
+          label={""} 
+        />
+
+        <div className="pt-4">
+          <Button 
+            onClick={async () => {
+              const response = await axios.post("http://localhost:2000/api/v1/user/signin", {
+                email,
+                password
+              });
+              localStorage.setItem("token", response.data.token);
+              navigate("/Dashboard");
+            }} 
+            label={"Sign-Up"} 
+            
+          />
+          <SubHeading label={"Don't Have an Account"} />
         </div>
+      </div>
     </div>
-}
+  </div>
+)}

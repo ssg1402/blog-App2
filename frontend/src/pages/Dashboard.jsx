@@ -5,7 +5,7 @@ export const Dashboard = () => {
     return <div>
         <Appbar />
         <div className="m-8">
-            <Blogview value={"1000"} />
+            <Blogview value={""} />
        
         </div>
     </div>

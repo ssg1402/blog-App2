@@ -1,3 +1,4 @@
+import './index.css'; // Import Tailwind CSS
 const express = require("express")
 const mongoose = require('mongoose')
 require('dotenv').config()
