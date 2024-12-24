@@ -1,6 +1,22 @@
 const { zod } = require('zod');
+require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://ayushsahu:realmenarzo20a**@firstdb.eumrc.mongodb.net/")
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false
+        });
+        console.log('MongoDB connection SUCCESS');
+    } catch (error) {
+        console.error('MongoDB connection FAIL');
+        process.exit(1);
+    }
+}
+
 //define the user schema .
 const userSchema = new mongoose.Schema({
     name: {
@@ -66,9 +82,9 @@ const blogSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 const Blog = mongoose.model('Blog', blogSchema);
-
+const mongo = connectDB();
 module.exports = {
     User,
     Blog,
-
+    mongo
 }
